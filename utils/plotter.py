@@ -12,7 +12,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import scienceplots  # noqa: F401
+# import scienceplots  # noqa: F401
 from scipy.spatial.transform import Rotation as R
 
 
