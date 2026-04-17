@@ -1,6 +1,8 @@
 # Copyright (c) 2025, Kousheek Chakraborty
 # All rights reserved.
 #
+# Modifications Copyright (c) 2026, Sean Marriott
+#
 # SPDX-License-Identifier: BSD-3-Clause
 #
 # This project uses the IsaacLab framework (https://github.com/isaac-sim/IsaacLab),
@@ -74,7 +76,8 @@ class DroneRacerSceneCfg(InteractiveSceneCfg):
 class ActionsCfg:
     """Action specifications for the MDP."""
 
-    control_action: mdp.ControlActionCfg = mdp.ControlActionCfg(use_motor_model=False)
+    # control_action: mdp.ControlActionCfg = mdp.ControlActionCfg(use_motor_model=False)
+    control_action: mdp.BodyControlActionCfg = mdp.BodyControlActionCfg()
 
 
 @configclass
@@ -95,6 +98,9 @@ class ObservationsCfg:
         def __post_init__(self) -> None:
             self.enable_corruption = False
             self.concatenate_terms = True
+            
+    # observation groups
+    policy: PolicyCfg = PolicyCfg()
 
     @configclass
     class CriticCfg(ObsGroup):
