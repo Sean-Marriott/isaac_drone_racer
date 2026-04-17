@@ -77,8 +77,8 @@ class ActionsCfg:
     """Action specifications for the MDP."""
 
     # control_action: mdp.ControlActionCfg = mdp.ControlActionCfg(use_motor_model=False)
-    control_action: mdp.BodyControlActionCfg = mdp.BodyControlActionCfg()
-
+    # control_action: mdp.BodyControlActionCfg = mdp.BodyControlActionCfg()
+    control_action: mdp.VelocityPassthroughActionCfg = mdp.VelocityPassthroughActionCfg()
 
 @configclass
 class ObservationsCfg:
@@ -231,6 +231,9 @@ class DroneRacerEnvCfg(ManagerBasedRLEnvCfg):
         # simulation settings
         self.sim.dt = 1 / 400
         self.sim.render_interval = self.decimation
+        
+        self.events.push_robot = None
+        
 
 
 @configclass
