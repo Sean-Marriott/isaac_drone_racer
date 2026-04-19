@@ -10,4 +10,3 @@ from .allocation import Allocation  # noqa: F401
 from .motor import Motor  # noqa: F401
 from .attitude_controller import AttitudeController # noqa: F401
 from .body_rate_controller import BodyRateController # noqa: F401
-from .velocity_passthrough_controller import VelocityPassthroughController # noqa: F401
